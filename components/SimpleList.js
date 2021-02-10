@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback,useState} from 'react';
 import { View, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -47,7 +47,7 @@ const SimpleList = () => {
       simpleData.map(data => {
         return(
           // 터치가 가능한 투명한 영역
-          <TouchableOpacity key={data.id} onPress={()=>{ console.log(data); setItem(data); }}>
+          <TouchableOpacity key={data.id} onPress={()=> itemPressed(data) }>
             <Text>{data.id} {data.title}</Text>
           </TouchableOpacity>
         )
